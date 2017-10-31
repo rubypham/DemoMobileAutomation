@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.auto.common.Global;
+import com.auto.model.AppiumCap;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
@@ -19,6 +20,7 @@ public class BaseTest {
 
 	protected WebDriver driver;
 	protected WebElement webElement;
+	protected AppiumCap appiumCap;
 
 	By settingIcon = new By.ById("Settings icon");
 	By doneBtn = new By.ByXPath("//XCUIElementTypeButton[@label='Done']");
@@ -36,8 +38,8 @@ public class BaseTest {
 	public void initDriver() {
 
 		try {
-			driver = new IOSDriver<MobileElement>(new URL(Global.appiumServerURL),
-					Global.appiumCap.getDesiredCapabilities());
+			driver = new IOSDriver<MobileElement>(new URL(appiumCap.getAppiumServerURL()),
+					appiumCap.getDesiredCapabilities());
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			return;

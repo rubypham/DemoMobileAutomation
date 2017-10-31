@@ -1,12 +1,10 @@
-<xml>
-	<objectPaths>
-		<objectPath>
-			<name></name>
-			<ios>
-				<type></type>
-				<value></value>
-			</ios>
-		</objectPath>
-	</objectPaths>
-
-</xml>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<objectPaths>
+	<originalObjectPath>
+		<name>Game.VideoPlayer.BackgroundImg</name>
+		<iosPath>
+			<type>Id</type>
+			<value>NFLST_VideoPlayerBackgroundImage_iPhone</value>
+		</iosPath>
+	</originalObjectPath>
+</objectPaths>

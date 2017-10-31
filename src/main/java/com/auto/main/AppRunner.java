@@ -2,30 +2,49 @@ package com.auto.main;
 
 import org.apache.log4j.Logger;
 
-import com.auto.basetest.BaseTest;
 import com.auto.common.CommonConstant;
-import com.auto.common.Global;
+import com.auto.model.Configuration;
+import com.auto.service.LoaderService;
+import com.auto.utils.TestUtils;
 
 public class AppRunner {
 	private static final Logger LOGGER = Logger.getLogger(AppRunner.class);
+
 	/**
-	 * Execute cl ex: java -jar target/mobile-automation-0.0.1-SNAPSHOT.jar Simulator_iPhone7.properties
+	 * Execute cl ex: java -jar target/mobile-automation-0.0.1-SNAPSHOT.jar
+	 * Simulator_iPhone7.properties environment.properties
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		if (args.length == 0) {
-			LOGGER.warn("Missing device >> Using default device!");
-		}else{
-			Global.device = args[0];
+		init();
+
+		String device;
+		String env;
+
+		switch (args.length) {
+		case 2:
+			device = args[0];
+			env = args[1];
+			break;
+		case 1:
+			device = args[0];
+			env = CommonConstant.ENVIRONMENT_DEFAULT;
+			LOGGER.warn("Missing environment config >> Using default environment " + env);
+			break;
+
+		default:
+			device = CommonConstant.DEVICE_DEFAULT;
+			env = CommonConstant.ENVIRONMENT_DEFAULT;
+			LOGGER.warn("Missing device config >> Using default device " + device);
+			LOGGER.warn("Missing environment config >> Using default environment " + env);
+			break;
 		}
+
 		
-		Global.appiumCap = Global.appiumCapMap.get(Global.device);
-		Global.appiumServerURL = CommonConstant.APPIUM_SERVER_URL_DEFAULT.replace("4723", Global.appiumCap.getPort());
+		new TestManager().execute(device, env);
 
-
-		BaseTest baseTest = new BaseTest();
-		baseTest.initDriver();
-
-		baseTest.demoTest();
 	}
+
+
 }

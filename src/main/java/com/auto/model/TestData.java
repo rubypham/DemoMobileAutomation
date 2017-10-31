@@ -1,17 +1,17 @@
 package com.auto.model;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAttribute;
 
-public class TestData {
+public class TestData implements Serializable, Cloneable{
 
-	@XmlAttribute(name = "name")
 	protected String name;
-
-	@XmlAttribute(name = "value")
 	protected String value;
 
 	public TestData() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public TestData(String name, String value) {
@@ -24,6 +24,7 @@ public class TestData {
 		return name;
 	}
 
+	@XmlAttribute
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -32,8 +33,13 @@ public class TestData {
 		return value;
 	}
 
+	@XmlAttribute
 	public void setValue(String value) {
 		this.value = value;
+	}
+	
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 }

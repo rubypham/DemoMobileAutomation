@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSuites>
+  
+
+    <testSuite id="GameScreen" status="run">
+    <summary>Verify all flows on game screen</summary>
+
+    
+        <testCase id="1" tester="" status="run">
+            <description>Verify Video player function on Home Screen</description>
+            <!-- 
+            <testFlow  keyword="tapLogin" >
+                <testData name="username" value="sguat21"/>
+                <testData name="password" value="123456"/>
+            </testFlow>
+             -->
+            <testFlow  keyword="checkVideoPlayer"  />
+            <message></message>
+        </testCase>
+
+
+
+        
+        
+
+    </testSuite>
+    
+    
+</testSuites>

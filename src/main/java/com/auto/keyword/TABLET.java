@@ -8,9 +8,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Documented
-@Target(value={ElementType.METHOD})
+@Target(value = { ElementType.METHOD, ElementType.FIELD })
 @Inherited
-@Retention(value=RetentionPolicy.RUNTIME)
+@Retention(value = RetentionPolicy.RUNTIME)
 public @interface TABLET {
 
 }

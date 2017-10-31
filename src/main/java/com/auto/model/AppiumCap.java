@@ -6,6 +6,8 @@ public class AppiumCap {
 	private String fileName;
 	private String port;
 	private String platformName;
+	private String device;
+	private String appiumServerURL;
 	private DesiredCapabilities desiredCapabilities;
 
 	public AppiumCap() {
@@ -34,6 +36,22 @@ public class AppiumCap {
 
 	public void setPlatformName(String platformName) {
 		this.platformName = platformName;
+	}
+
+	public String getDevice() {
+		return device;
+	}
+
+	public void setDevice(String device) {
+		this.device = device;
+	}
+
+	public String getAppiumServerURL() {
+		return appiumServerURL;
+	}
+
+	public void setAppiumServerURL(String appiumServerURL) {
+		this.appiumServerURL = appiumServerURL;
 	}
 
 	public DesiredCapabilities getDesiredCapabilities() {

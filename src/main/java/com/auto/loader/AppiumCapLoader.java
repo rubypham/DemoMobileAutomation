@@ -15,21 +15,21 @@ import com.auto.common.Global;
 import com.auto.model.AppiumCap;
 import com.auto.utils.PropertiesUtils;
 
-public class AppiumCapLoader {
+public class AppiumCapLoader extends BaseLoader {
 
-	private Map<String, AppiumCap> appiumCapMap = new HashMap<>();
+	private static Map<String, AppiumCap> appiumCapMap;
 
-	public void loadAppiumCap() {
-		
-		File folder = new File(Global.BASE_DIR + "/devices");
+	public void init() {
+		appiumCapMap = new HashMap<>();
+		File folder = new File(Global.BASE_DIR + CommonConstant.DEVICES_DIR);
 		if (folder.isDirectory()) {
 			File[] devices = folder.listFiles();
 			for (File device : devices) {
 				appiumCapMap.put(device.getName(), loadAppiumCap(device));
 			}
 		}
-		
-		Global.appiumCapMap.putAll(appiumCapMap);
+
+		// Global.appiumCapMap.putAll(appiumCapMap);
 
 	}
 
@@ -55,5 +55,11 @@ public class AppiumCapLoader {
 		return appiumCap;
 
 	}
+
+	public static Map<String, AppiumCap> getAppiumCapMap() {
+		return appiumCapMap;
+	}
+	
+	
 
 }

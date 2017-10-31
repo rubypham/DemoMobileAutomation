@@ -8,11 +8,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Documented
-@Target(value={ElementType.METHOD})
+@Target(value = { ElementType.METHOD })
 @Inherited
-@Retention(value=RetentionPolicy.RUNTIME)
+@Retention(value = RetentionPolicy.RUNTIME)
 public @interface KeywordInfo {
-	String[] author() default("Author");
-	String description() default("Description");
+	String[] author() default ("Author");
+
+	String description() default ("Description");
 
 }
